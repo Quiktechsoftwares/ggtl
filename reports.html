@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<link href="main.css" rel="stylesheet">
+	<title>Reports - GGTL.in</title>
+
+</head>
+<body>
+
+
+	<!-- navbar -->
+
+	<header class="text-gray-600 bg-gray-300 body-font">
+		<div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
+			<a href="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+				<img class="w-24 h-24" src="assets/img/logo2.png">
+				<a href="https://ggtl.in" style="font-size: 40px;font-weight: bold;" class="GGTL.IN"><b>GGTL.IN</b></a>
+			<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+				<a href="index.html" class="mr-5 hover:text-gray-900">Home</a>
+			</nav>
+		</div>
+	</header>
+	<!-- Header END -->
+
+	<!-- Report Input -->
+
+	<div id="app">
+		
+		<section class="text-gray-600 body-font">
+			<div class="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
+				<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-8 md:mb-0">
+					<img class="object-cover object-center rounded w-80 h-80" alt="hero" src="../assets/img/logo2.png">
+				</div>
+				<div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+					<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Enter the Certificate Number</h1>
+					<p class="mb-8 leading-relaxed">By Entering the cerificate number, you can get back the Certificate Details, You can cross check the QR Code to verify the Intergrity of the Certificate</p>
+					<div class="flex w-full md:justify-start justify-center items-end">
+						<div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+							<label for="hero-field" class="leading-7 text-sm text-gray-600">Certificate Number</label>
+							<input v-model="input" type="text" id="hero-field" name="hero-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:ring-red-200 focus:bg-transparent focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+						</div>
+						<button @click="fetchdata" id="getbutton" class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded text-lg">GET INFO</button>
+					</div>
+					<p class="text-center  text-red-500" v-if="isload" >Loading ...</p>
+					<a href="#" class="text-sm mt-2 text-gray-500 mb-8 w-full">Report a Problem</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- End of Report -->
+
+
+		<section v-if="loading" class="text-gray-600 body-font shadow-2xl mb-8 border border-gray-300 bg-gray-100 rounded md:mx-24 ">
+			<div class="container px-5 py-10 mx-auto flex flex-wrap flex-col">
+				<img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded" alt="hero" :src="image">
+				<div class="flex flex-col text-center w-full">
+					<div class="flex flex-col text-center w-full mb-10">
+						<h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"> ID: {{number}}</h1>
+						<p class="lg:w-2/3 mx-auto font-mono leading-relaxed text-base"><strong class="border-b-2 border-indigo-600" >Issued On:</strong> {{date}}</p>
+					</div>
+
+					<div class="flex flex-wrap -m-4 text-center">
+						<div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+							<div class="border-2 border-gray-400 px-4 py-6 rounded-lg">
+								<h2 class="title-font font-medium text-3xl text-gray-900">{{name}}</h2>
+								<p class="leading-relaxed">Gem Name</p>
+							</div>
+						</div>
+						<div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+							<div class="border-2 border-gray-400 px-4 py-6 rounded-lg">
+								<h2 class="title-font font-medium text-3xl text-gray-900">{{weight}}</h2>
+								<p class="leading-relaxed">Gem Weight</p>
+							</div>
+						</div>
+						<div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+							<div class="border-2 border-gray-400 px-4 py-6 rounded-lg">
+								<h2 class="title-font font-medium text-3xl text-gray-900">{{type}}</h2>
+								<p class="leading-relaxed">Gem Type</p>
+							</div>
+						</div>
+						<div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+							<div class="border-2 border-gray-400 px-4 py-6 rounded-lg">
+
+								<h2 class="title-font font-medium text-3xl text-gray-900">{{color}}</h2>
+								<p class="leading-relaxed">Gem Color</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- End of Certificate Information -->
+
+	<!-- Footer -->
+
+	<footer class="text-gray-600 bg-gray-300 mx-4 my-4 body-font">
+		<div class="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
+			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+				<span class="ml-3 text-xl">GGTL.IN</span>
+			</a>
+			 <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 GGTL.IN —
+            <a href="https://magniontechnologies.co.in" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Materialized by Magnion Technology Factory</a>
+          </p>
+			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+				<a class="text-gray-500">
+					<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+						<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z">https://www.facebook.com/ggtl.in</path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500">
+					<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+						<path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500">
+					<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+						<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+						<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+					</svg>
+				</a>
+				<a class="ml-3 text-gray-500">
+					<svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+						<path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+						<circle cx="4" cy="4" r="2" stroke="none"></circle>
+					</svg>
+				</a>
+			</span>
+		</div>
+	</footer>
+
+
+	<!-- End of Footer -->
+
+	<script type="text/javascript">
+		window.addEventListener('load', function () {
+			let app = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello Vue!',
+					loading: false,
+					input:"",
+					number:"",
+					name: "",
+					date:"",
+					image:"",
+					weight:"",
+					type:"",
+					color:"",
+					isload:false
+				},
+				methods:{
+					fetchdata(){
+						this.isload = !this.isload
+						this.number = "",
+						this.name = "" ,
+						this.date = "",
+						this.image = "",
+						this.weight = "",
+						this.type = "",
+						this.color = ""
+						try{
+							console.log("Fetch Data")
+							axios.post("https://ggtlapi.herokuapp.com/certificate/get",{
+
+								"id":this.input
+
+							}).then(data => {
+
+								console.log(data.data.status)
+								if(data.data.status === "sucess"){
+									console.log(data.data.data[0])
+									this.number = data.data.data[0].certificate_id,
+									this.name = data.data.data[0].gem_name ,
+									this.date = data.data.data[0].timestamp,
+									this.image = data.data.data[0].gem_image,
+									this.weight = data.data.data[0].gem_weight,
+									this.type = data.data.data[0].gem_type,
+									this.color = data.data.data[0].gem_color
+									this.loading = true
+									window.scroll({
+										top: 500,
+										left: 100,
+										behavior: 'smooth'
+									})
+									this.isload = !this.isload
+								}							
+								else{
+									throw "No Number Found"
+								}
+
+								
+							})
+							.catch(err => {
+								alert("Failed, Please check your input")
+								this.isload = !this.isload
+							})
+						}
+						catch{
+							alert("Failed, Please check your input")
+							this.isload = !this.isload
+						}
+
+					}
+				}
+			})
+		})
+	</script>
+
+</body>
+
+
+<!-- <script type="text/javascript">
+	// G1611503483837T3VMCU_A_
+	let button = document.getElementById('getbutton')
+	button.addEventListener("click",()=>{
+		console.log("Boom")
+	})
+</script> -->
+
+
+
+
+
+
+</html>
