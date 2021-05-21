@@ -1358,7 +1358,17 @@ header#sidebar-header ul.nav-menu .mega-links-4columns ul.sub-menu-columns > li 
     background-image: url('../../assets/img/ba_1.jpg');
     background-size: cover;
 }
-
+.nile-about-page {
+    padding: 100px 0;
+    background-image: url('../../assets/img/aboutbg.jpg');
+    background-size: cover;
+}
+p {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font: 18px Arial, sans-serif;
+}
 a.nile-bottom {
     background-color: #234491;
     color: #fff;
