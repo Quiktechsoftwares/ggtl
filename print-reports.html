@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GGTL Print Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link rel="stylesheet" href="./css/print-section.css">
+</head>
+
+<body>
+    <br>
+
+
+    <div id="result" class="is-hidden">
+
+
+
+
+        <div class="container">
+            <div class="main" id="GFG" style="border: 1px solid black; width:321px;height: 204px;">
+
+                <!-- <img src="https://ggtl.in/assets/img/logo2.png"> -->
+
+                <!-- <h2 class="text-center title-report">GEMSTONE ANALYSIS REPORT</h2> -->
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <h3 style="float: right;font-size: 10px; margin-top: 2px; margin-right: 5px;"><u>GEMSTONE
+                                ANALYSIS REPORT</u></h3>
+                    </div>
+
+                    <div style="margin-top: -28px;" class="col-md-8">
+                        <div class="column">
+
+                            <div style="font-size: 8px;" id="genSize">Certificate No :
+                                <span style="font-size: 8px;" id="cid" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <div style="font-size: 8px;" id="genSize1">Identification :
+                                <span style="font-size: 8px;" id="gname" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <div style="font-size: 8px;" id="genSize2">
+                                Weight:
+                                <span style="font-size: 8px;" id="gweight" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+
+                            <div style="font-size: 8px;" id="genSize3">
+                                Color:
+                                <span style="font-size: 8px;" id="gcolor" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+
+                            </div>
+
+
+                            <div style="font-size: 8px;" id="genSize4">
+                                Type:
+                                <span style="font-size: 8px;" id="gtype" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <div style="font-size: 8px;" id="genSize5">
+                                Cut Type:
+                                <span style="font-size: 8px;" id="gcuttype" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <div style="font-size: 8px;" id="genSize6">
+                                Issued On:
+                                <span style="font-size: 8px;" id="on" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <div style="font-size: 8px;" id="genSize7">
+                                Issued By:
+                                <span style="font-size: 8px;" id="by" class="red subtitle is-5 has-text-weight-semibold">
+
+                                </span>
+                            </div>
+
+                            <!-- scale start -->
+
+                            <div id="colorGradingScale">
+                                <h6 style="margin-top: 0px; font-size:6px;">COLOUR GRADING SCALE</h6>
+
+                                <img style="margin-top: -30px;" src="https://res.cloudinary.com/k-mohamed-hasim/image/upload/v1634962635/ggtl/color_scalling-new-png_lzigzp.png">
+
+
+                                <div id="colourScale" style="margin-top: -19px; font-size: 8px;">
+                                    Color Scale:
+                                    <span style="font-size: 8px;" id="colour_scale" class="red subtitle is-5 has-text-weight-semibold">
+
+                                    </span>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div id="clarityGradingScale">
+                                <h6 style="margin-top: 1px; font-size:6px;">CLARITY GRADING SCALE</h6>
+
+                                <img style="margin-top: -30px;" src="https://res.cloudinary.com/k-mohamed-hasim/image/upload/v1634969230/ggtl/CLARITY_GRADING_SCALE_NEW_robbih.png">
+
+
+                                <div id="clarityScale" style="margin-top: -19px;font-size: 8px;">
+                                    Clarity Scale:
+                                    <span style="font-size: 8px;" id="clarity_scale" class="red subtitle is-5 has-text-weight-semibold">
+
+                                    </span>
+                                </div>
+
+
+
+                            </div>
+
+                            <!-- scale end -->
+
+                            <hr class="solid">
+                            <style type="text/css">
+                                /* Solid border */
+                                
+                                hr.solid {
+                                    border-top: 3px solid #bbb;
+                                    margin-top: 3px;
+                                }
+                            </style>
+
+
+
+
+                        </div>
+
+                        <p style="margin-top: -26px; font-size: 5.8px;" id="genSize8" class="container">
+                            This report is issued by GGTL.IN and accepted by client in accordance with our lab terms and conditions. GGTL.IN has examined the gemstone carefully with specialised instruments and prepared this report to the best of it's knowledge and professional standards.
+                            The client acknowledge this report is not a guaranteed valuation or appraisal and many not referred to as such. Please check the weight and size before and after transaction of the gemstone Subject to Nagercoil Jurisdiction
+                            only.
+
+                        </p>
+
+                    </div>
+
+                    <div style="float: right;" class="col-md-4">
+                        <img class="image" width="55" height="40" style="margin-left: 12px;" id="gimage" src="" onerror="imageLoaderror()" />
+                        <!-- <img class="image mt-2" src="./assets/qr/qr.png" width="60" height="35"> -->
+                        <div style="margin-top: 25px;" id="qrcode" class="qrcode"></div>
+                    </div>
+
+
+
+                </div>
+
+
+                <div style="font-size: 8px;" id="footer-address" class="container-fluid bg-dark">
+                    <a style="text-decoration: none; text-align: center; color: white;" href="https://g.page/ggtl-in?share">273/B, 3rd floor, Avvai shanmugam salai, Meenakshipuram,
+                        Nagercoil - 629 001. </a>
+
+                </div>
+
+
+                <!-- water mark starrt -->
+
+                <div class="absolute">
+                    <img src="https://ggtl-admin.vercel.app/static/media/logo.ddc5c6be.png">
+
+                </div>
+
+                <!-- watermark end -->
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        //var url = 'http://www.site.com/234234234';
+        //var id = url.substring(url.lastIndexOf('/') + 1);
+        //alert(id); // 234234234
+
+        // var url = window.location.pathname;
+        // var id = url.substring(url.lastIndexOf('/') + 1);
+        // alert(id);
+
+
+        // var full_url = document.URL; // Get current url
+        // var url_array = full_url.split('/') // Split the string into an array with / as separator
+        // var last_segment = url_array[url_array.length-1];  // Get the last part of the array (-1)
+        // alert( last_segment ); // Alert last segment
+
+        // var full_url = document.URL;
+        // var idParameter = getUrlParameters("id", full_url, true);
+        // alert(idParameter);
+
+        var baseUrl = (window.location).href; // You can also use document.URL
+        var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+        //alert(koopId)//503
+
+        window.onload = fetchresults;
+
+        async function fetchresults() {
+
+            let input = koopId ? koopId : '';
+            // let input = document.getElementById("input").value;
+            let button = document.getElementById("button");
+            // let nocert = document.getElementById("nocert");
+
+            let cid = document.getElementById("cid");
+            let gimage = document.getElementById("gimage");
+            let gname = document.getElementById("gname");
+            let gweight = document.getElementById("gweight");
+            let gtype = document.getElementById("gtype");
+            let gcuttype = document.getElementById("gcuttype");
+            let gcolor = document.getElementById("gcolor");
+            let on = document.getElementById("on");
+            let by = document.getElementById("by");
+
+            let result = document.getElementById("result");
+
+            // nocert.classList.add("is-hidden");
+            //result.classList.add("is-hidden");
+
+            if (!input) {
+                alert("input required");
+                return;
+            }
+            let BASE_URL = "https://ggtl.in/api/certificate/get/";
+
+            //  button.classList.add("is-loading");
+
+            const response = await fetch(BASE_URL + input);
+            //button.classList.remove("is-loading");
+            const json = await response.json();
+            //console.log(json.data[0]);
+
+            if (json.status === "success") {
+                if (json.data[0].is_diamond == 0) {
+                    result.classList.remove("is-hidden");
+                    result.classList.add("p3");
+                    result.classList.add("columns");
+
+                    cid.innerText = ` ${json.data[0].certificate_id}`;
+                    gimage.src = json.data[0].gem_image;
+                    gname.innerText = `${json.data[0].gem_name}`;
+                    gweight.innerText = `${json.data[0].gem_weight}`;
+                    gtype.innerText = `${json.data[0].gem_type}`;
+                    gtype.innerText = `${json.data[0].gem_type}`;
+                    gcuttype.innerText = `${json.data[0].gem_cut_type}`;
+                    gcolor.innerText = `${json.data[0].gem_color}`;
+                    on.innerText = `${json.data[0].localtime}`;
+                    by.innerText = `GGTL.IN`;
+                    document.getElementById('colourScale').style.display = "none";
+                    document.getElementById('clarityScale').style.display = "none";
+
+
+                    document.getElementById('colorGradingScale').style.display = "none";
+                    document.getElementById('clarityGradingScale').style.display = "none";
+
+                    // document.getElementById("footer-address").style.marginTop = "0px";
+
+                    document.getElementById("genSize8").innerHTML = `
+                    
+                        This report is issued by GGTL.IN and accepted by client in <br>
+                        accordance with our lab terms and conditions. GGTL.IN has <br>
+                        examined the gemstone carefully with specialised instruments and <br>
+                        prepared this report to the best of it's knowledge and professional <br>
+                        standards. The client acknowledge this report is not a guaranteed <br>
+                        valuation or appraisal and many not referred to as such. Please <br> 
+                        check the weight and size before and after transaction of the <br>
+                        gemstone Subject to Nagercoil Jurisdiction only.
+
+                    `;
+
+                    document.getElementById("genSize8").style.fontSize = "5.8px;"
+                } else {
+                    result.classList.remove("is-hidden");
+                    result.classList.add("p3");
+                    result.classList.add("columns");
+
+
+                    colour_scale.innerText = ` ${json.data[0].colour_scale}`;
+
+                    clarity_scale.innerText = ` ${json.data[0].clarity_scale}`;
+
+                    cid.innerText = ` ${json.data[0].certificate_id}`;
+                    gimage.src = json.data[0].gem_image;
+                    gname.innerText = `${json.data[0].gem_name}`;
+                    gweight.innerText = `${json.data[0].gem_weight}`;
+                    gtype.innerText = `${json.data[0].gem_type}`;
+                    gtype.innerText = `${json.data[0].gem_type}`;
+                    gcuttype.innerText = `${json.data[0].gem_cut_type}`;
+                    gcolor.innerText = `${json.data[0].gem_color}`;
+                    on.innerText = `${json.data[0].localtime}`;
+                    by.innerText = `GGTL.IN`;
+
+                    // dynamic font size 
+
+
+                    document.getElementById("cid").style.fontSize = "6px";
+                    document.getElementById("gname").style.fontSize = "6px";
+                    document.getElementById("gweight").style.fontSize = "6px";
+                    document.getElementById("gtype").style.fontSize = "6px";
+                    document.getElementById("gcuttype").style.fontSize = "6px";
+                    document.getElementById("gcolor").style.fontSize = "6px";
+                    document.getElementById("on").style.fontSize = "6px";
+                    document.getElementById("by").style.fontSize = "6px";
+                    document.getElementById("clarity_scale").style.fontSize = "6px";
+                    document.getElementById("colour_scale").style.fontSize = "6px";
+
+
+                    document.getElementById("clarityScale").style.fontSize = "6px";
+                    document.getElementById("colourScale").style.fontSize = "6px";
+
+                    document.getElementById("genSize").style.fontSize = "6px";
+                    document.getElementById("genSize1").style.fontSize = "6px";
+                    document.getElementById("genSize2").style.fontSize = "6px";
+                    document.getElementById("genSize3").style.fontSize = "6px";
+                    document.getElementById("genSize4").style.fontSize = "6px";
+                    document.getElementById("genSize5").style.fontSize = "6px";
+                    document.getElementById("genSize6").style.fontSize = "6px";
+                    document.getElementById("genSize7").style.fontSize = "6px";
+
+                    document.getElementById("genSize8").innerHTML = `
+                    
+                    This report is issued by GGTL.IN and accepted by client in accordance with our lab terms and <br>
+                    conditions. GGTL.IN has examined the gemstone carefully with specialised instruments and <br>
+                    prepared this report to the best of it's knowledge and professional standards. The client <br>
+                    acknowledge this report is not a guaranteed valuation or appraisal and many not referred to as <br>
+                    such. Please check the weight and size before and after transaction of the gemstone Subject to <br>
+                    Nagercoil Jurisdiction only.
+
+                `;
+
+                    document.getElementById("genSize8").style.fontSize = "4px";
+                    //  document.getElementById("footer-address").style.marginTop = "-2px";
+
+
+                    // dynamic font size end
+                }
+
+            } else {
+                //  nocert.classList.remove("is-hidden");
+                nocert.classList.add("show");
+                nocert.classList.add("message");
+                nocert.classList.add("is-danger");
+            }
+
+            //let website = "https://mohamedhasimofficial.github.io";
+            // let website = document.URL;
+            let website = "ggtl.in/certificate-verify.html?id=" + koopId;
+
+            // let website = document.getElementById("website").value;
+
+            if (website) {
+                let qrcodeContainer = document.getElementById("qrcode");
+                qrcodeContainer.innerHTML = "";
+                new QRCode(qrcodeContainer, website);
+                /*With some styles*/
+                let qrcodeContainer2 = document.getElementById("qrcode-2");
+                qrcodeContainer2.innerHTML = "";
+                new QRCode(qrcodeContainer2, {
+                    text: website,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#5868bf",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                document.getElementById("qrcode-container").style.display = "block";
+            } else {
+                alert("Please enter a valid URL");
+            }
+
+        }
+        // catch (err) {
+        //     console.log(err);
+        //     alert("Failed", err);
+        // }
+
+
+        function imageLoaderror() {
+            let gimage = document.getElementById("gimage");
+            gimage.src =
+                "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png";
+        }
+    </script>
+
+
+    <!-- data end -->
+
+</body>
+
+</html>
