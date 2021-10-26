@@ -13,7 +13,110 @@
 
 
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <link rel="stylesheet" href="./css/print-section.css">
+
+    <style>
+        td {
+            color: #9d9b9b;
+            background-color: white;
+        }
+        
+        #qrcode-container {
+            display: none;
+        }
+        
+        .qrcode {
+            padding: 19px;
+            margin-top: 30px;
+        }
+        
+        .qrcode img {
+            margin: 0 auto;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .title-report {
+            padding: 20px 30px;
+            background-color: #234491;
+            color: whitesmoke;
+            /* background-color: rgb(224, 214, 195); */
+        }
+        
+        .red {
+            color: #234491;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .mt-2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 19px;
+        }
+        
+        .small-font {
+            font-size: 8px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-column-gap: 50px;
+            grid-template-columns: auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+        
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+        
+        #GFG {
+            position: relative;
+        }
+        
+        #footer-address {
+            position: absolute;
+            bottom: 0px;
+        }
+        /* div.main {
+            position: relative;
+        }
+        
+        div.absolute {
+            position: absolute;
+            /* top: 25%;
+    left: 35%;*/
+        /* width: 150px;
+    height: 100px; */
+        /*   opacity: 0.5;
+            vertical-align: middle;
+        }*/
+        
+        div.main {
+            position: relative;
+            /*    width: 400px;
+            height: 200px;
+          border: 3px solid #73AD21;*/
+        }
+        
+        div.absolute {
+            position: absolute;
+            top: 13%;
+            left: 25%;
+            width: 150px;
+            height: 100px;
+            /* border: 3px solid #73AD21; */
+            opacity: 0.5;
+        }
+    </style>
 </head>
 
 <body>
@@ -166,7 +269,7 @@
                     <div style="float: right;" class="col-md-4">
                         <img class="image" width="55" height="40" style="margin-left: 12px;" id="gimage" src="" onerror="imageLoaderror()" />
                         <!-- <img class="image mt-2" src="./assets/qr/qr.png" width="60" height="35"> -->
-                        <div style="margin-top: 25px;" id="qrcode" class="qrcode"></div>
+                        <div id="qrcode" class="qrcode"></div>
                     </div>
 
 
